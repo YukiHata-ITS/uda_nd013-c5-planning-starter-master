@@ -74,7 +74,7 @@ double collision_circles_cost_spiral(const std::vector<PathPoint>& spiral,
           // the distance between the center of each circle and the
           // obstacle/actor
           // #002 TODO-円から障害物/俳優までの距離：各円の中心と障害物/俳優の間の距離をどのように計算しますか
-          double dist = distance(circle_center_x, circle_center_y, obst.location.x, obst.location.y);  // <- Update #002
+          double dist = distance(circle_center_x, circle_center_y, actor_center_x, actor_center_y);  // <- Update #002
 
           collision = (dist < (CIRCLE_RADII[c] + CIRCLE_RADII[c2]));
         }

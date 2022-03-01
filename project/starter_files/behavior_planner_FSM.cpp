@@ -81,8 +81,8 @@ double BehaviorPlannerFSM::get_look_ahead_distance(const State& ego_state) {
   // 妥当な先読み距離を見つける1つの方法は、速度Vで走行し、
   // 快適な減速を使用しているときに停止する必要がある距離を見つけることです。
 
-  /*  単位時間の変化と仮定： dd = a*(1^2) + v*1  */
-  auto look_ahead_distance = velocity_mag + accel_mag;  // <- Fix This	#001
+  /*  単位時間の変化と仮定： dd = a*(dt^2)/2 + v*dt  */
+  auto look_ahead_distance = 0.5 * accel_mag * _lookahead_time * _lookahead_time + velocity_mag * _lookahead_time;  // <- Fix This	#001
 
   // LOG(INFO) << "Calculated look_ahead_distance: " << look_ahead_distance;
 
